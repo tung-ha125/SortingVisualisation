@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class Column extends StackPane {
-    public static int maxValue = 49;
+    public static int maxValue = 50;
     private int value;
     public Rectangle rect = new Rectangle();
 
