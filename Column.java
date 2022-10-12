@@ -25,10 +25,11 @@ public class Column extends StackPane {
      */
     public Column(int value, int i) {
         this.value = value;
+        int height = value * SortingApplication.height_per_value;
         this.setLayoutX(SortingApplication.startX + i * SortingApplication.cell_width);
-        this.setLayoutY(SortingApplication.main_group_height / 2 - value * 6);
+        this.setLayoutY(SortingApplication.main_group_height / 2 - height);
         this.setWidth(SortingApplication.column_width);
-        this.setHeight(value * 6);
+        this.setHeight(height);
         rect.setFill(Color.LIGHTBLUE);
         rect.setX(0);
         rect.setY(0);
