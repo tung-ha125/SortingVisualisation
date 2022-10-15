@@ -1,25 +1,18 @@
 import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.util.ArrayList;
 import java.util.Random;
-
-
 
 public class SortingApplication extends Application {
     public static final int screen_width = 1200;
@@ -38,29 +31,29 @@ public class SortingApplication extends Application {
     public static final int cell_width = column_width + gap_X;
     public static final int startX = (screen_width - (column_width + gap_X) * max_button) / 2;
     public static final int choiceBoxWidth = 150;
-    public final Button addBtn = new Button("ADD");
-    public final Button removeBtn = new Button("REMOVE");
-    public final Button startBtn = new Button("START");
-    public final Button shuffleBtn = new Button("SHUFFLE");
-    public final TextField addField = new TextField();
-    public final ChoiceBox<String> choiceBox = new ChoiceBox<>();
-    public final ButtonBar buttonBar = new ButtonBar();
-    public final Button FWBtn = new Button("FW"); //forward button
-    public final Button BWBtn = new Button("BW"); //backward button
-    public final Button playBtn = new Button("STOP");
-    public final ProgressBar progressBar = new ProgressBar();
+    private final Button addBtn = new Button("ADD");
+    private final Button removeBtn = new Button("REMOVE");
+    private final Button startBtn = new Button("START");
+    private final Button shuffleBtn = new Button("SHUFFLE");
+    private final TextField addField = new TextField();
+    private final ChoiceBox<String> choiceBox = new ChoiceBox<>();
+    private final ButtonBar buttonBar = new ButtonBar();
+    private final Button FWBtn = new Button("FW"); //forward button
+    private final Button BWBtn = new Button("BW"); //backward button
+    private final Button playBtn = new Button("STOP");
+    private final ProgressBar progressBar = new ProgressBar();
     private SequentialTransition st;
 
-    Group root0 = new Group();
-    Group mainGroup = new Group();
-    HBox topBar = new HBox();
-    HBox bottomBar = new HBox();
-    VBox descriptionArea;
-    boolean isRunning;
+    private Group root0 = new Group();
+    private Group mainGroup = new Group();
+    private HBox topBar = new HBox();
+    private HBox bottomBar = new HBox();
+    private VBox descriptionArea;
+    private boolean isRunning;
     public ArrayList<Column> columns = new ArrayList<>();
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         Scene scene = new Scene(root0, screen_width, screen_height);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sorting Visualisation");
@@ -80,7 +73,7 @@ public class SortingApplication extends Application {
         playBtn.setDisable(true);
         FWBtn.setDisable(true);
         BWBtn.setDisable(true);
-        buttonAction();
+        button_action();
         this.columns.clear();
         this.columns = init_columns();
         mainGroup.getChildren().addAll(columns);
@@ -98,7 +91,7 @@ public class SortingApplication extends Application {
         node.setTooltip(tooltip);
     }
 
-    void buttonAction() {
+    void button_action() {
         startBtn.setOnAction(e-> start_button_action());
         removeBtn.setOnAction(e->remove_button_action());
         addBtn.setOnAction(e->add_button_action());
@@ -221,7 +214,7 @@ public class SortingApplication extends Application {
         ArrayList<Column> columns = new ArrayList<>();
         Random r = new Random();
         for (int i = 0; i < 10; i++) {
-            int value = 1 + r.nextInt(50);
+            int value = 1 + r.nextInt(Column.maxValue);
             Column col = new Column(value, i);
             columns.add(col);
         }
