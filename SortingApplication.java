@@ -21,8 +21,8 @@ public class SortingApplication extends Application {
     public static final int top_bar_width = screen_width - description_width;
     public static final int top_bar_height = 100;
     public static final int bottom_bar_width = screen_width;
-    public static final int bottom_bat_height = 100;
-    public static final int main_group_height = screen_width - top_bar_height - bottom_bat_height;
+    public static final int bottom_bar_height = 100;
+    public static final int main_group_height = screen_width - top_bar_height - bottom_bar_height;
     public static final int main_group_width = screen_width - description_width;
     public static final int max_button = 15;
     public static final int column_width = 37;
@@ -63,7 +63,7 @@ public class SortingApplication extends Application {
         descriptionArea = set_up_sorting_description();
         set_position_and_size(topBar, 0, 0, top_bar_width, top_bar_height);
         set_position_and_size(mainGroup, 0, top_bar_height, main_group_width, main_group_height);
-        set_position_and_size(bottomBar, 0, screen_height - bottom_bat_height, bottom_bar_width, bottom_bat_height);
+        set_position_and_size(bottomBar, 0, screen_height - bottom_bar_height, bottom_bar_width, bottom_bar_height);
 
         //set up some nodes inside main parts
         add_tool_tip(addField, "1. Mỗi lần chỉ có thể thêm 1 số\n" +

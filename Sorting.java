@@ -12,7 +12,7 @@ public abstract class Sorting {
     public static final Color compare = Color.YELLOW;
     public static final Color swap = Color.LIGHTGREEN;
     public static final Color in_right_position = Color.ORANGE;
-    
+
     public Sorting() {
 
     }

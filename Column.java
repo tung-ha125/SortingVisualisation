@@ -15,7 +15,11 @@ public class Column extends StackPane {
     }
 
     public void set_value(int value) {
-        this.value = value;
+        if (value > maxValue || value <= 0) {
+            System.out.println("Giá trị không hợp lệ!");
+        } else {
+            this.value = value;
+        }
     }
 
     /**
@@ -24,23 +28,27 @@ public class Column extends StackPane {
      * @param i use to support for setting position
      */
     public Column(int value, int i) {
-        this.value = value;
-        int height = value * SortingApplication.height_per_value;
-        this.setLayoutX(SortingApplication.startX + i * SortingApplication.cell_width);
-        this.setLayoutY(SortingApplication.main_group_height / 2 - height);
-        this.setWidth(SortingApplication.column_width);
-        this.setHeight(height);
-        rect.setFill(Color.LIGHTBLUE);
-        rect.setX(0);
-        rect.setY(0);
-        rect.setWidth(this.getWidth());
-        rect.setHeight(this.getHeight());
-
-        if (value >= 4) {
-            Text text = new Text("" + value);
-            this.getChildren().addAll(rect, text);
+        if (value > maxValue || value <= 0) {
+            System.out.println("Giá trị không hợp lệ!");
         } else {
-            this.getChildren().add(rect);
+            this.value = value;
+            int height = value * SortingApplication.height_per_value;
+            this.setLayoutX(SortingApplication.startX + i * SortingApplication.cell_width);
+            this.setLayoutY(SortingApplication.main_group_height / 3 - height);
+            this.setWidth(SortingApplication.column_width);
+            this.setHeight(height);
+            rect.setFill(Color.LIGHTBLUE);
+            rect.setX(0);
+            rect.setY(0);
+            rect.setWidth(this.getWidth());
+            rect.setHeight(this.getHeight());
+
+            if (value >= 4) {
+                Text text = new Text("" + value);
+                this.getChildren().addAll(rect, text);
+            } else {
+                this.getChildren().add(rect);
+            }
         }
     }
 
