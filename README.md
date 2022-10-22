@@ -8,7 +8,7 @@ Bài tập minh họa các thuật toán sắp xếp nổi bọt, lựa chọn, 
 1. Tải file zip về máy
 2. Giải nén file zip và lưu vào thư mục mà bạn chọn trên máy tính
 3. Mở project (Vì project được viết trên IntelliJ nên dùng IntelliJ là tốt nhất)
-4. Mở file SortingApplication.java lên và ấn vào set up SDK, chọn phiên bản SDK có trong máy
+4. Mở file SortingApplication.java lên và ấn vào 'Setup SDK', chọn phiên bản SDK có trong máy
 ![](ReadmeImages/Pic6.png)
 5. Ấn vào nút 'Unamed' bên cạnh hình cái búa bên phải màn hình
 ![](ReadmeImages/Pic1.png)
